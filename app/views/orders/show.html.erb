@@ -1,0 +1,18 @@
+<p>
+  <b>Order name:</b>
+  <%= @order.order_name %>
+</p>
+
+<!-- Display items of an order -->
+<h2>Items</h2>
+<% @order.items.each do |item| %>
+  <p>
+    <b>Item name:</b>
+    <%= item.item_name %>
+  </p>
+<% end %>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %> |
+<%= link_to 'Show Items', order_items_path(@order) %>

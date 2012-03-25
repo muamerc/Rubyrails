@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120324124839) do
+ActiveRecord::Schema.define(:version => 20120325002045) do
 
   create_table "cities", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,21 @@ ActiveRecord::Schema.define(:version => 20120324124839) do
 
   create_table "countries", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "items", :force => true do |t|
+    t.string   "item_name"
+    t.integer  "order_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "items", ["order_id"], :name => "index_items_on_order_id"
+
+  create_table "orders", :force => true do |t|
+    t.string   "order_name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

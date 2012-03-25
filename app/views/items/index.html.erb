@@ -1,0 +1,21 @@
+<h1>Items in <%= @order.order_name %></h1>
+
+<table>
+  <tr>
+    <th>Item name</th>
+  </tr>
+
+<% for item in @items %>
+  <tr>
+    <td><%= item.item_name %></td>
+    <td><%= link_to 'Show', order_item_path(@order, item) %></td>
+    <td><%= link_to 'Edit', edit_order_item_path(@order, item) %></td>
+    <td><%= link_to 'Destroy', order_item_path(@order, item), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New item', new_order_item_path(@order) %>
+<%= link_to 'Back to Order', @order %>
